@@ -9,16 +9,21 @@ const babelRules = {
     },
 };
 
+const styleRules = {
+    test: /\.css$/i,
+    use: ["style-loader", "css-loader"],
+};
+
 const path = require("path");
 
 module.exports = {
-    mode: 'development',
+    mode: "development",
     entry: "./devel/noIndex.js",
     output: {
         filename: "main.js",
-        path: path.resolve(__dirname, "dist")
+        path: path.resolve(__dirname, "dist"),
     },
     module: {
-        rules: [babelRules],
+        rules: [babelRules, styleRules],
     },
 };

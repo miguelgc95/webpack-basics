@@ -49,7 +49,7 @@ module.exports = {
 }; */
 
 import { foo, Human } from "./js/module-a.js"
-
+import "./styles/main.css"
 console.log(foo());
 
 const paco = new Human;
