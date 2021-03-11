@@ -12,10 +12,11 @@ const babelRules = {
 const path = require("path");
 
 module.exports = {
+    mode: 'development',
     entry: "./devel/noIndex.js",
     output: {
-        filename: "you.js",
-        path: path.resolve(__dirname, "hey")
+        filename: "main.js",
+        path: path.resolve(__dirname, "dist")
     },
     module: {
         rules: [babelRules],
