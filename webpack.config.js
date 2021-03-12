@@ -1,3 +1,7 @@
+const path = require("path");
+const htmlWebpackPlugin = require("html-webpack-plugin");
+
+
 const babelRules = {
     test: /\.m?js$/,
     exclude: /node_modules/,
@@ -10,19 +14,23 @@ const babelRules = {
 };
 
 const styleRules = {
-    test: /\.css$/i,
-    use: ["style-loader", "css-loader"],
+    test: /\.scss$/i,
+    use: ["style-loader", "css-loader", "sass-loader"],
 };
 
-const path = require("path");
 
 module.exports = {
     mode: "development",
     entry: "./devel/noIndex.js",
     output: {
-        filename: "main.js",
+        filename: "main.[contenthash].js",
         path: path.resolve(__dirname, "dist"),
     },
+    plugins: [
+        new htmlWebpackPlugin({
+            template: "./template.html"
+        })
+        ],
     module: {
         rules: [babelRules, styleRules],
     },

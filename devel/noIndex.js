@@ -12,7 +12,7 @@
 //por defecto webpack solo entiende js
 //para usar otras dependencias que no sean js (como css, imagenes, react) necesitamos usar loaders
 
-//para encontrar un loader y ver como integrarlo al proyecto buscar en https://github.com/webpack-contrib/awesome-webpack
+//para encontrar un loader y ver como integrarlo al proyecto buscar en la docu oficial (https://webpack.js.org/loaders/) o en github (https://github.com/webpack-contrib/awesome-webpack)
 //los loaders se configuran en el webpack.config.js
 //los plugins son necesarios para automatizar cosas y que nos faciliten la vida
 //uno muy util es 'html-webpack-plugin' (intalarlo con npm dev y añadirlo en webpackconfig)
@@ -31,7 +31,6 @@
     },
 };
 
-const htmlWebpackPlugin = require("html-webpack-plugin");
 const { template } = require("lodash");
 
 module.exports = {
@@ -44,12 +43,13 @@ module.exports = {
     plugins: [
         new htmlWebpackPlugin(
             template: "src/index.html"
-        )
-    ]
-}; */
+            )
+        ]
+    }; */
+
 
 import { foo, Human } from "./js/module-a.js"
-import "./styles/main.css"
+import "./styles/sass/main.scss"
 console.log(foo());
 
 const paco = new Human;
