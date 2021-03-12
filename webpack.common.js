@@ -20,15 +20,10 @@ const styleRules = {
 
 
 module.exports = {
-    mode: "development",
-    entry: "./devel/noIndex.js",
-    output: {
-        filename: "main.[contenthash].js",
-        path: path.resolve(__dirname, "dist"),
-    },
+    entry: "./src/index.js",
     plugins: [
         new htmlWebpackPlugin({
-            template: "./template.html"
+            template: "./src/template.html"
         })
         ],
     module: {
