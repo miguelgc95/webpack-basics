@@ -1,6 +1,6 @@
 const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
-
+const webpack = require("webpack");
 
 const babelRules = {
     test: /\.m?js$/,
@@ -18,14 +18,17 @@ const styleRules = {
     use: ["style-loader", "css-loader", "sass-loader"],
 };
 
-
 module.exports = {
-    entry: "./src/index.js",
+    entry: "./src/js/main.js",
     plugins: [
         new htmlWebpackPlugin({
-            template: "./src/template.html"
-        })
-        ],
+            template: "./src/template.html",
+        }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+        }),
+    ],
     module: {
         rules: [babelRules, styleRules],
     },
