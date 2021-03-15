@@ -1,4 +1,3 @@
-const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
@@ -13,9 +12,14 @@ const babelRules = {
     },
 };
 
-const styleRules = {
-    test: /\.scss$/i,
-    use: ["style-loader", "css-loader", "sass-loader"],
+const htmlLoader = {
+    test: /\.html$/i,
+    loader: "html-loader"
+};
+
+const illo = {
+    test: /\.(svg|png|jpg|gif)$/i,
+    type: 'asset/resource'
 };
 
 module.exports = {
@@ -30,6 +34,6 @@ module.exports = {
         }),
     ],
     module: {
-        rules: [babelRules, styleRules],
+        rules: [babelRules, htmlLoader, illo],
     },
 };

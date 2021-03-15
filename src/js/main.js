@@ -20,7 +20,7 @@
 
 
 import { foo, Human } from "./module-a.js"
-//import "./styles/sass/main.scss"
+import "../styles/sass/main.scss"
 import { wey } from "./module-b.js"
 
 console.log(foo());
